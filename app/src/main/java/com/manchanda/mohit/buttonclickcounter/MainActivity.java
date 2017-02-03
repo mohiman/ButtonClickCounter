@@ -2,6 +2,7 @@ package com.manchanda.mohit.buttonclickcounter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         numTimesClicked ++;
-        String result = "\nThe Button got tapped " + numTimesClicked  + " time ";
+        String result = "The Button got tapped " + numTimesClicked  + " times    ";
         textView.append(result);
+        if(textView.getText()!=null && textView.getText().toString().trim().length()>0){
+            textView.append("\n");
+        }        textView.setMovementMethod(new ScrollingMovementMethod());
     }
 }
